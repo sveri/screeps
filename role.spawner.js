@@ -35,10 +35,6 @@ var roleSpawner = {
 
   },
 
-  count_creeps: function() {
-
-  }
-
 }
 
 module.exports = roleSpawner;
