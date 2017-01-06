@@ -5,19 +5,19 @@ var role_upgrader = {
 
         let room1 = Game.spawns['Spawn1'].room;
         let controller = room1.controller;
-        let sources = creep.room.find(FIND_SOURCES);
-        let first_source = sources[0];
+        let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
 
 
         if (creep.pos.getRangeTo(controller) < 4 && creep.carry.energy > 0) {
             creep.upgradeController(controller);
-        } else if (creep.carry.energy < creep.carryCapacity && creep.pos.getRangeTo(first_source) > 1) {
-            creep.moveTo(first_source);
+        } else if (creep.carry.energy < creep.carryCapacity && creep.pos.getRangeTo(closest_source) > 1) {
+            creep.moveTo(closest_source);
         } else if (creep.carry.energy < creep.carryCapacity) {
-            creep.harvest(first_source);
+            creep.harvest(closest_source);
         } else {
             creep.moveTo(controller);
         }
+
 
 
         // creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)

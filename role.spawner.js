@@ -12,6 +12,7 @@ var roleSpawner = {
 
             let harvester_count = 0;
             let upgrader_count = 0;
+            let builder_count = 0;
 
             for (var creep_name in Game.creeps) {
 
@@ -20,12 +21,17 @@ var roleSpawner = {
 
                 if (constants.upgrader_name == Game.creeps[creep_name].memory.role)
                     upgrader_count++;
+
+                if (constants.builder_name == Game.creeps[creep_name].memory.role)
+                    builder_count++;
             }
 
             if (harvester_count < 5) {
                 spawn1.createCreep(constants.harvester_build, null, { role: constants.harvester_name });
             } else if (upgrader_count < 2) {
                 spawn1.createCreep(constants.upgrader_build, null, { role: constants.upgrader_name });
+            } else if (builder_count < 1) {
+                spawn1.createCreep(constants.builder_build, null, { role: constants.builder_name });
             }
         }
 
