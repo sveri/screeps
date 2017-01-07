@@ -18,7 +18,7 @@ loop = function() {
         config.init_room(room);
         
         if(Memory.room.Constructions.Extensions < 1) {
-            room_constructor.build_extensions();
+            room_constructor.build_extensions(room);
         }
     }
 
