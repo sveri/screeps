@@ -4,7 +4,7 @@ var constructor = {
 	/** @param {Room} room **/
 	build_extensions: function(room) {
         let spawn1 = Game.spawns['Spawn1'];
-        let initial_x = spawn1.pos.x + 1;
+        let initial_x = spawn1.pos.x + 2;
         let initial_y = spawn1.pos.y;
 
         // TODO use lookAt instead of createConSite
