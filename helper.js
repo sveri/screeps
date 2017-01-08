@@ -7,6 +7,12 @@ var helper = {
         } else if (creep.carry.energy == 0) {
             creep.memory.action = action_when_empty_energy;
         }
+	},
+
+	assign_roles: function(){
+		// for (var creep in Game.creeps){
+			
+		// }
 	}
 }
 

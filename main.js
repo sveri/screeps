@@ -1,5 +1,6 @@
 var config = require('config');
 var constants = require('constants');
+var helper = require('helper');
 
 var room_constructor = require('room.constructions');
 
@@ -9,6 +10,9 @@ var roleHarvester = require('role.harvester');
 var roleSpawner = require('role.spawner');
 var role_upgrader = require('role.upgrader');
 var roles_builder = require('role.builder');
+
+
+let tick = 0;
 
 
 loop = function() {
@@ -44,6 +48,14 @@ loop = function() {
         	Memory.creep = undefined;
 
         }
+    }
+
+    tick++;
+
+    if(tick == Number.MAX_SAFE_INTEGER) tick = 0;
+
+    if(tick % 10 == 0) {
+    	helper.assign_roles();
     }
 }
 
