@@ -1,3 +1,6 @@
+var helper = require('helper');
+var constants = require('constants');
+
 var role_upgrader = {
 
     /** @param {Creep} creep **/
@@ -7,54 +10,16 @@ var role_upgrader = {
         let controller = room1.controller;
         let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
 
+        helper.set_creep_state(creep, constants.states.working, constants.states.harvesting);
 
-        if (creep.pos.getRangeTo(controller) < 4 && creep.carry.energy > 0) {
-            creep.upgradeController(controller);
-        } else if (creep.carry.energy < creep.carryCapacity && creep.pos.getRangeTo(closest_source) > 1) {
-            creep.moveTo(closest_source);
-        } else if (creep.carry.energy < creep.carryCapacity) {
-            creep.harvest(closest_source);
-        } else {
+        if (creep.memory.action == constants.states.harvesting) {
+            if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(closest_source);
+            }
+        } else if(creep.upgradeController(controller) == ERR_NOT_IN_RANGE) {
             creep.moveTo(controller);
         }
 
-
-
-        // creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)
-
-
-        // if(creep.carry.energy == creep.carryCapacity) {
-        //   let room1 = Game.spawns['Spawn1'].room;
-
-        //   if(creep.upgradeController(room1.controller) == ERR_NOT_IN_RANGE) {
-        //     creep.moveTo(room1.controller);
-        //   }
-
-        // } else {
-        //   var sources = creep.room.find(FIND_SOURCES);
-        //   if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-        //     creep.moveTo(sources[0]);
-        //   }
-        // }
-
-
-        // if(creep.carry.energy < creep.carryCapacity) {
-        //   var sources = creep.room.find(FIND_SOURCES);
-        //   if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-        //     creep.moveTo(sources[0]);
-        //   }
-
-        // } else {
-        //   let spawn = Game.spawns['Spawn1'];
-        //   let room1 = spawn.room;
-        //   console.log(creep.transfer(room1.controller, RESOURCE_ENERGY));
-        //   if(creep.transfer(room1.controller, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        //     creep.moveTo(room1.controller);
-        //   }
-        //   // else if(creep.transfer(Game.spawns['Spawn1'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        //   //   creep.moveTo(Game.spawns['Spawn1']);
-        //   // }
-        // }
     },
 
 };

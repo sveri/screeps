@@ -20,7 +20,7 @@ loop = function() {
 
         config.init_room(room);
         
-        if(Memory.room.Constructions.Extensions < 1) {
+        if(Memory.room.Constructions.Extensions < 3) {
             room_constructor.build_extensions(room);
         }
     }
@@ -39,6 +39,11 @@ loop = function() {
         if (constants.builder_name == creep.memory.role)
             roles_builder.run(creep);
 
+        if(creep.ticksToLive == 1) {
+        	creep.suicide();
+        	Memory.creep = undefined;
+
+        }
     }
 }
 

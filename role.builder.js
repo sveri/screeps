@@ -1,11 +1,15 @@
 var _ = require('lodash');
 var constants = require('constants');
+var helper = require('helper');
 
 var role_builder = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        if (creep.carry.energy < creep.carryCapacity) {
+
+        helper.set_creep_state(creep, constants.states.working, constants.states.harvesting);
+
+        if (creep.memory.action == constants.states.harvesting) {
             var sources = creep.room.find(FIND_SOURCES);
             if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0]);
