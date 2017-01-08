@@ -26,11 +26,11 @@ var roleSpawner = {
                     builder_count++;
             }
 
-            if (harvester_count < 5) {
+            if (harvester_count < constants.max.simple_harvester) {
                 spawn1.createCreep(constants.harvester_build, null, { role: constants.harvester_name });
-            } else if (upgrader_count < 2) {
+            } else if (upgrader_count < constants.max.simple_upgrader) {
                 spawn1.createCreep(constants.upgrader_build, null, { role: constants.upgrader_name });
-            } else if (builder_count < 1) {
+            } else if (builder_count < constants.max.simple_builder) {
                 spawn1.createCreep(constants.builder_build, null, { role: constants.builder_name });
             }
         }
