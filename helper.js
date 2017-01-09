@@ -36,7 +36,7 @@ var helper = {
 
 	            	var counter = 0;
 	            	let harvester_creeps = helper.get_creeps_by_type(constants.harvester_name);
-	            	if(harvester_creesp.length > 3) {
+	            	if(harvester_creeps.length > 3) {
 	            		while(counter < 2){
 							harvester_creeps[counter].memory.role = constants.builder_name;
 	        				counter++;
