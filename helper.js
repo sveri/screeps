@@ -36,10 +36,12 @@ var helper = {
 
 	            	var counter = 0;
 	            	let harvester_creeps = helper.get_creeps_by_type(constants.harvester_name);
-	            	while(counter < 2){
-						harvester_creeps[counter].memory.role = constants.builder_name;
-        				counter++;
-	            	}
+	            	if(harvester_creesp.length > 3) {
+	            		while(counter < 2){
+							harvester_creeps[counter].memory.role = constants.builder_name;
+	        				counter++;
+		            	}
+		            }
 				}
 	        }
 	    }
