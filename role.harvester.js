@@ -19,13 +19,20 @@ var roleHarvester = {
             } else {
                 let room = spawn1.room;
                 let extensions = room.find(FIND_MY_STRUCTURES, {filter: { structureType: STRUCTURE_EXTENSION }});
+
+                var did_move = false;
                 for(var i in extensions){
                     let ext = extensions[i]
                     if (ext.energy < ext.energyCapacity){
                         if (creep.transfer(ext, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                             creep.moveTo(ext);
+                            did_move = true;
                         }
                     }
+                }
+
+                if(!did_move) {
+                    creep.moveTo(spawn1);
                 }
             }
             

@@ -17,19 +17,24 @@ var helper = {
 	        // turn the builders to harvesters
 	        if(Game.rooms[room].find(FIND_CONSTRUCTION_SITES).length == 0) {
 	            let builder_creeps = helper.get_creeps_by_type(constants.builder_name);
+	            let number_builder_creeps = builder_creeps.length;
 
-	            if(builder_creeps.length > 0) {
-	            	constants.max.simple_harvester +=2;
-	            	constants.max.simple_builder -=2;
+	            if(number_builder_creeps > 0) {
+
+	            	console.log("turning builder into harvesters")
+	            	
+	            	Memory[room].max.simple_harvester += number_builder_creeps;
+	            	Memory[room].max.simple_builder -= number_builder_creeps;
 
 	            	builder_creeps.forEach(function(creep) {creep.memory.role = constants.harvester_name});
 	            }
 	            
 	        } else {
 				let builder_creeps = helper.get_creeps_by_type(constants.builder_name);
+				
 				if(builder_creeps.length != 2){
-	            	constants.max.simple_harvester -=2;
-	            	constants.max.simple_builder +=2;	
+	            	Memory[room].max.simple_harvester -=2;
+	            	Memory[room].max.simple_builder +=2;	
 
 	            	var counter = 0;
 	            	let harvester_creeps = helper.get_creeps_by_type(constants.harvester_name);

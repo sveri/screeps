@@ -28,11 +28,12 @@ var roleSpawner = {
             }
 
 
-            if (harvester_count < constants.max.simple_harvester) {
+
+            if (harvester_count < Memory[room].max.simple_harvester) {
                 spawn1.createCreep(constants.harvester_build, null, { role: constants.harvester_name });
-            } else if (upgrader_count < constants.max.simple_upgrader) {
+            } else if (upgrader_count < Memory[room].max.simple_upgrader) {
                 spawn1.createCreep(constants.upgrader_build, null, { role: constants.upgrader_name });
-            } else if (builder_count < constants.max.simple_builder) {
+            } else if (builder_count < Memory[room].max.simple_builder) {
                 spawn1.createCreep(constants.builder_build, null, { role: constants.builder_name });
             }
         }
@@ -43,22 +44,3 @@ var roleSpawner = {
 
 module.exports = roleSpawner;
 
-
-// console.log( _.filter(Game.creeps,{ memory: { role: 'harvester' }}));
-
-
-// export let counter = 3;
-// export function incCounter() {
-//     counter++;
-// }
-//
-// //------ main1.js ------
-// import { counter, incCounter } from './lib';
-//
-// // The imported value `counter` is live
-// console.log(counter); // 3
-// incCounter();
-// console.log(counter); // 4
-//
-// // The imported value can’t be changed
-// counter++; // TypeError

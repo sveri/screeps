@@ -12,7 +12,7 @@ var constructor = {
             initial_x = initial_x + 1;
         }
 
-        Memory.room.Constructions.Extensions = Memory.room.Constructions.Extensions + 1;
+        Memory[room].Constructions.Extensions = Memory[room].Constructions.Extensions + 1;
 	}
 }
 
