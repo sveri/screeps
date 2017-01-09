@@ -21,8 +21,8 @@ var helper = {
 
 	            if(number_builder_creeps > 0) {
 	            	
-	            	Memory[room].max.simple_harvester += number_builder_creeps;
-	            	Memory[room].max.simple_builder -= number_builder_creeps;
+	            	Memory[room].max.simple_harvester = 6;
+	            	Memory[room].max.simple_builder = 0;
 
 	            	builder_creeps.forEach(function(creep) {creep.memory.role = constants.harvester_name});
 	            }
@@ -31,8 +31,8 @@ var helper = {
 				let builder_creeps = helper.get_creeps_by_type(constants.builder_name);
 				
 				if(builder_creeps.length < 2){
-	            	Memory[room].max.simple_harvester -=2;
-	            	Memory[room].max.simple_builder +=2;	
+	            	Memory[room].max.simple_harvester = 4;
+	            	Memory[room].max.simple_builder = 2;	
 
 	            	var counter = 0;
 	            	let harvester_creeps = helper.get_creeps_by_type(constants.harvester_name);
