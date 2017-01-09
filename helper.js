@@ -30,7 +30,7 @@ var helper = {
 	        } else {
 				let builder_creeps = helper.get_creeps_by_type(constants.builder_name);
 				
-				if(builder_creeps.length != 2){
+				if(builder_creeps.length < 2){
 	            	Memory[room].max.simple_harvester -=2;
 	            	Memory[room].max.simple_builder +=2;	
 
