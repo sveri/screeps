@@ -1,4 +1,5 @@
 var constants = {
+
   harvester_name: 'simple_harvester',
   harvester_build: [WORK, CARRY, CARRY, MOVE, MOVE],
 
@@ -9,14 +10,14 @@ var constants = {
   builder_build: [WORK, CARRY, CARRY, CARRY, MOVE],
 
   max: {
-  	simple_harvester: 4,
-  	simple_upgrader: 2,
-  	simple_builder: 2,
+    simple_harvester: 4,
+    simple_upgrader: 2,
+    simple_builder: 2,
   },
 
   states : {
-  	working: 'working',
-  	harvesting: 'harvesting',
+    working: 'working',
+    harvesting: 'harvesting',
   }
 }
 

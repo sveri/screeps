@@ -4,11 +4,12 @@ var constants = require('constants');
 var roleSpawner = {
 
     spawn: function() {
-        let spawn1 = Game.spawns['Spawn1'];
+        let spawn1 = Game.spawns['Spawn1']
+        let room = spawn1.room;
 
 
 
-        if (spawn1.energy > 299) {
+        if (room.energyAvailable > 299) {
 
             let harvester_count = 0;
             let upgrader_count = 0;
@@ -25,6 +26,7 @@ var roleSpawner = {
                 if (constants.builder_name == Game.creeps[creep_name].memory.role)
                     builder_count++;
             }
+
 
             if (harvester_count < constants.max.simple_harvester) {
                 spawn1.createCreep(constants.harvester_build, null, { role: constants.harvester_name });

@@ -12,9 +12,6 @@ var role_upgrader = require('role.upgrader');
 var roles_builder = require('role.builder');
 
 
-let tick = 0;
-
-
 loop = function() {
 
 
@@ -28,6 +25,7 @@ loop = function() {
             room_constructor.build_extensions(room);
         }
     }
+
 
     roleSpawner.spawn();
 
@@ -50,11 +48,7 @@ loop = function() {
         }
     }
 
-    tick++;
-
-    if(tick == Number.MAX_SAFE_INTEGER) tick = 0;
-
-    if(tick % 10 == 0) {
+    if(Game.time % 10 == 0) {
     	helper.assign_roles();
     }
 }
