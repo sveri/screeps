@@ -20,8 +20,6 @@ var helper = {
 	            let number_builder_creeps = builder_creeps.length;
 
 	            if(number_builder_creeps > 0) {
-
-	            	console.log("turning builder into harvesters")
 	            	
 	            	Memory[room].max.simple_harvester += number_builder_creeps;
 	            	Memory[room].max.simple_builder -= number_builder_creeps;
