@@ -14,10 +14,10 @@ var role_upgrader = {
 
         if (creep.memory.action == constants.states.harvesting) {
             if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(closest_source);
+                creep.moveTo(closest_source, {reusePath: 100});
             }
         } else if(creep.upgradeController(controller) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(controller);
+            creep.moveTo(controller, {reusePath: 100});
         }
 
     },
