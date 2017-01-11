@@ -4,6 +4,9 @@ const profiler = require('screeps-profiler');
 profiler.enable();
 
 
+
+var creep_helper = require('creep_helper');
+
 var config = require('config');
 var constants = require('constants');
 var helper = require('helper');
