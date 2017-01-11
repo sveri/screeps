@@ -6,8 +6,10 @@ var helper = {
 
 		if(creep.carry.energy == creep.carryCapacity){
             creep.memory.action = action_when_full_energy;
+            creep.memory.path = undefined;
         } else if (creep.carry.energy == 0) {
             creep.memory.action = action_when_empty_energy;
+            creep.memory.path = undefined;
         }
 	},
 
