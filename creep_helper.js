@@ -1,11 +1,11 @@
 Creep.prototype.set_path_from_creep_to = function(target) {
     if (!this.memory.path) {
-        this.memory.path = creep.room.findPath(this.pos, target.pos);
+        this.memory.path = this.room.findPath(this.pos, target.pos);
     }
 }
 
 Creep.prototype.move_or_clear_path = function(target) {
-    this.set_path_from_creep_to(this, target);
+    this.set_path_from_creep_to(target);
 
     if (this.moveByPath(this.memory.path) != OK) {
         this.memory.path = undefined;
