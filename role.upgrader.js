@@ -1,4 +1,3 @@
-var helper = require('helper');
 var constants = require('constants');
 
 var role_upgrader = {
@@ -6,7 +5,7 @@ var role_upgrader = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-        helper.set_creep_state(creep, constants.states.working, constants.states.harvesting);
+        creep.set_creep_state(constants.states.working, constants.states.harvesting);
 
         if (creep.memory.action == constants.states.harvesting) {
             creep.harvest_closest_resource()

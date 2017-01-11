@@ -20,3 +20,16 @@ Creep.prototype.harvest_closest_resource = function() {
         this.move_or_clear_path(closest_source);
     }
 }
+
+Creep.prototype.set_creep_state = function(action_when_full_energy, action_when_empty_energy) {
+
+    if (this.carry.energy == this.carryCapacity) {
+        this.memory.action = action_when_full_energy;
+        this.memory.path = undefined;
+    } else if (this.carry.energy == 0) {
+        this.memory.action = action_when_empty_energy;
+        this.memory.path = undefined;
+    }
+
+
+}

@@ -1,18 +1,6 @@
 var constants = require('constants');
 
 var helper = {
-
-	set_creep_state: function(creep, action_when_full_energy, action_when_empty_energy) {
-
-		if(creep.carry.energy == creep.carryCapacity){
-            creep.memory.action = action_when_full_energy;
-            creep.memory.path = undefined;
-        } else if (creep.carry.energy == 0) {
-            creep.memory.action = action_when_empty_energy;
-            creep.memory.path = undefined;
-        }
-	},
-
 	assign_roles: function(){
 		for(var room in Game.rooms) {
 	        
