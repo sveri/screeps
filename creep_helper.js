@@ -34,7 +34,5 @@ Creep.prototype.harvest_closest_resource = function() {
 
     if (this.harvest(closest_source) == ERR_NOT_IN_RANGE) {
         this.move_or_clear_path(closest_source);
-    } else {
-        this.memory.path = undefined;
     }
 }

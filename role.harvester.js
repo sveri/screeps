@@ -6,14 +6,6 @@ var roleHarvester = {
 
         if (creep.carry.energy < creep.carryCapacity) {
             creep.harvest_closest_resource()
-            // let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
-
-            // if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
-            //     creep.move_or_clear_path(closest_source);
-            // } else {
-            //     creep.memory.path = undefined;
-            // }
-
         } else {
             let spawn1 = Game.spawns['Spawn1'];
             
