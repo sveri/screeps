@@ -6,8 +6,9 @@ Creep.prototype.set_path_from_creep_to = function(target) {
 
 Creep.prototype.move_or_clear_path = function(target) {
     this.set_path_from_creep_to(target);
+    let move_result = this.moveByPath(this.memory.path)
 
-    if (this.moveByPath(this.memory.path) != OK) {
+    if (move_result != OK && move_result != ERR_TIRED) {
         this.memory.path = undefined;
     }
 }
@@ -25,10 +26,8 @@ Creep.prototype.set_creep_state = function(action_when_full_energy, action_when_
 
     if (this.carry.energy == this.carryCapacity) {
         this.memory.action = action_when_full_energy;
-        this.memory.path = undefined;
     } else if (this.carry.energy == 0) {
         this.memory.action = action_when_empty_energy;
-        this.memory.path = undefined;
     }
 
 
