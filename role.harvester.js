@@ -1,4 +1,3 @@
-var creep_helper = require('creep_helper');
 
 var roleHarvester = {
 
@@ -6,18 +5,14 @@ var roleHarvester = {
     run: function(creep) {
 
         if (creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            let closest_source = sources[0];
+            creep.harvest_closest_resource()
+            // let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
 
-            creep_helper.set_path_from_creep_to(creep, closest_source);
-
-
-            if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
-                // creep.moveTo(sources[0], {reusePath: 100});
-                creep_helper.move_or_clear_path(creep);
-            } else {
-                creep.memory.path = undefined;
-            }
+            // if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
+            //     creep.move_or_clear_path(closest_source);
+            // } else {
+            //     creep.memory.path = undefined;
+            // }
 
         } else {
             let spawn1 = Game.spawns['Spawn1'];

@@ -9,15 +9,16 @@ var role_upgrader = {
         helper.set_creep_state(creep, constants.states.working, constants.states.harvesting);
 
         if (creep.memory.action == constants.states.harvesting) {
-            let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
+            creep.harvest_closest_resource()
+            // let closest_source = creep.pos.findClosestByRange(FIND_SOURCES);
             
-            //creep_helper.set_path_from_creep_to(creep, closest_source);
+            // //creep_helper.set_path_from_creep_to(creep, closest_source);
             
-            if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
-                creep.move_or_clear_path(closest_source);
-            } else {
-                creep.memory.path = undefined;
-            }
+            // if (creep.harvest(closest_source) == ERR_NOT_IN_RANGE) {
+            //     creep.move_or_clear_path(closest_source);
+            // } else {
+            //     creep.memory.path = undefined;
+            // }
 
         } else {
             let controller = Game.spawns['Spawn1'].room.controller;

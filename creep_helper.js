@@ -27,3 +27,14 @@ Creep.prototype.move_or_clear_path = function(target) {
         this.memory.path = undefined;
     }
 }
+
+Creep.prototype.harvest_closest_resource = function() {
+
+    let closest_source = this.pos.findClosestByRange(FIND_SOURCES);
+
+    if (this.harvest(closest_source) == ERR_NOT_IN_RANGE) {
+        this.move_or_clear_path(closest_source);
+    } else {
+        this.memory.path = undefined;
+    }
+}
