@@ -27,12 +27,15 @@ var roleHarvester = {
                     if (ext.energy < ext.energyCapacity){
                         if (creep.transfer(ext, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                             creep.move_or_clear_path(ext);
+
+                            creep.memory.action = constants.states.working
                             did_move = true;
                         }
                     }
                 }
 
                 if(!did_move) {
+                    creep.memory.action = constants.states.waiting
                     creep.move_or_clear_path(spawn1);
                 }
             }

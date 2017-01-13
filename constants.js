@@ -12,6 +12,7 @@ var constants = {
   states : {
     working: 'working',
     harvesting: 'harvesting',
+    waiting: 'waiting'
   }
 }
 

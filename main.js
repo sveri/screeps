@@ -68,11 +68,14 @@ var roles_builder = require('role.builder');
 
 module.exports.loop = function() {
     profiler.wrap(function() {
+
+    	// console.log("tick: " + Game.time)
+
         for (var room in Game.rooms) {
 
             config.init_room(room);
 
-            if (Memory[room].Constructions.Extensions < 1) {
+            if (Memory[room.name].Constructions.Extensions < 1) {
                 room_constructor.build_extensions(room);
             }
         }
