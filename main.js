@@ -1,7 +1,7 @@
 const profiler = require('screeps-profiler');
 
 
-// profiler.enable();
+
 
 
 
@@ -24,14 +24,11 @@ var roles_builder = require('role.builder');
 
 loop = function() {
 
-
-    //config.init();
-
     for (var room in Game.rooms) {
 
         config.init_room(room);
 
-        if(Memory[room].Constructions.Extensions < 1) {
+        if (Memory[room].Constructions.Extensions < 1) {
             room_constructor.build_extensions(room);
         }
     }
@@ -51,24 +48,31 @@ loop = function() {
         if (constants.builder_name == creep.memory.role)
             roles_builder.run(creep);
 
-        if(creep.ticksToLive == 1) {
-        	creep.suicide();
-        	Memory.creep = undefined;
+        if (creep.ticksToLive == 1) {
+            creep.suicide();
+            Memory.creep = undefined;
 
         }
     }
 
-    if(Game.time % 10 == 0) {
-    	helper.assign_roles();
+    if (Game.time % 10 == 0) {
+        helper.assign_roles();
     }
 }
 
-loop();
+// loop();
 // profiler.wrap(function() { loop();});
 
-// module.exports.loop = function() {
-//     profiler.wrap(function() {
-//     	loop();
+
+profiler.enable();
+
+module.exports.loop = function() {
+    profiler.wrap(function() {
+        loop();
+    });
+}
+
+
 
 //     	// console.log("tick: " + Game.time)
 
