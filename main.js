@@ -1,10 +1,5 @@
 const profiler = require('screeps-profiler');
 
-
-
-
-
-
 var creep_helper = require('creep_helper');
 
 var config = require('config');
@@ -28,7 +23,7 @@ loop = function() {
 
         config.init_room(room);
 
-        if (Memory[room].Constructions.Extensions < 1) {
+        if (Memory[room].Constructions.Extensions < Memory[room].max.constructions.extensions) {
             room_constructor.build_extensions(room);
         }
     }
@@ -61,7 +56,6 @@ loop = function() {
 }
 
 // loop();
-// profiler.wrap(function() { loop();});
 
 
 profiler.enable();
@@ -71,44 +65,3 @@ module.exports.loop = function() {
         loop();
     });
 }
-
-
-
-//     	// console.log("tick: " + Game.time)
-
-//         // for (var room in Game.rooms) {
-
-//         //     config.init_room(room);
-
-//         //     if (Memory[room.name].Constructions.Extensions < 1) {
-//         //         room_constructor.build_extensions(room);
-//         //     }
-//         // }
-
-
-//         // roleSpawner.spawn();
-
-//         // for (var name in Game.creeps) {
-//         //     var creep = Game.creeps[name];
-
-//         //     if (constants.harvester_name == creep.memory.role)
-//         //         roleHarvester.run(creep);
-
-//         //     if (constants.upgrader_name == creep.memory.role)
-//         //         role_upgrader.run(creep);
-
-//         //     if (constants.builder_name == creep.memory.role)
-//         //         roles_builder.run(creep);
-
-//         //     if (creep.ticksToLive == 1) {
-//         //         creep.suicide();
-//         //         Memory.creep = undefined;
-
-//         //     }
-//         // }
-
-//         // if (Game.time % 10 == 0) {
-//         //     helper.assign_roles();
-//         // }
-//     });
-// }

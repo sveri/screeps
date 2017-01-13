@@ -13,6 +13,9 @@ var config = {
 			Memory[room].max.simple_upgrader = 2;
 			Memory[room].max.simple_builder = 2;
 
+			Memory[room].max.constructions = {};
+			Memory[room].max.constructions.extensions = 3;
+
 
 			console.log("Config for Room: " + room + " initialized");
 
